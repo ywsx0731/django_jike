@@ -1,7 +1,7 @@
 *.py[cod]
 # C extensions
 *.so
-settings/local.py
+# settings/local.py
 
 # Packages
 *.egg
@@ -44,5 +44,4 @@ nosetests.xml
 celerybeat-schedule.db
 celerybeat.pid
 dump.rdb
-db.sqlite3
-settings/local.py
+# db.sqlite3

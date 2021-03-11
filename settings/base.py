@@ -48,10 +48,10 @@ INSTALLED_APPS = [
     # 'raven.contrib.django.raven_compat',
 ]
 
-RAVEN_CONFIG = {
-    'dsn': 'https://dd6a4752ee724b74b4ea56e7bcea2170@o547160.ingest.sentry.io/5669768',
-    # 'dsn': 'http://ef1e23388d2d4c0380de950c5d952748@100.95.173.161:9000/2',
-}
+# RAVEN_CONFIG = {
+#     'dsn': 'https://dd6a4752ee724b74b4ea56e7bcea2170@o547160.ingest.sentry.io/5669768',
+#     # 'dsn': 'http://ef1e23388d2d4c0380de950c5d952748@100.95.173.161:9000/2',
+# }
 
 MIDDLEWARE = [
     'interview.performance.performance_logger_middleware',
@@ -154,11 +154,11 @@ LOGGING = {
         },
     },
     'handlers': {
-        'sentry': {
-            'level': 'WARNING',
-            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
-            # 'tags': {'custom-tag': 'x'}
-        },
+        # 'sentry': {
+        #     'level': 'WARNING',
+        #     'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+        #     # 'tags': {'custom-tag': 'x'}
+        # },
         'console': {
             'class': 'logging.StreamHandler',
             'formatter': 'simple',
@@ -182,7 +182,7 @@ LOGGING = {
     },
 
     'root': {
-        'handlers': ['console', 'file', 'sentry'],
+        'handlers': ['console', 'file'],
         'level': 'INFO',
     },
 
