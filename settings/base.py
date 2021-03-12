@@ -45,8 +45,17 @@ INSTALLED_APPS = [
     'django_python3_ldap',
     'jobs',
     'interview',
+    'rest_framework'
     # 'raven.contrib.django.raven_compat',
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 # RAVEN_CONFIG = {
 #     'dsn': 'https://dd6a4752ee724b74b4ea56e7bcea2170@o547160.ingest.sentry.io/5669768',
@@ -54,7 +63,7 @@ INSTALLED_APPS = [
 # }
 
 MIDDLEWARE = [
-    'interview.performance.performance_logger_middleware',
+    'interview.performance.PerformanceAndExceptionLoggerMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
