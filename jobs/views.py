@@ -10,6 +10,8 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import loader
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
@@ -27,6 +29,7 @@ def joblist(request):
 
     return render(request, 'joblist.html', context)
 
+@cache_page(60 * 15)
 def detail(request, job_id):
     try:
         job = Job.objects.get(pk=job_id)
