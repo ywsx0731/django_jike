@@ -1,4 +1,5 @@
 import html
+import logging
 
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
@@ -15,6 +16,7 @@ from django.views.generic.detail import DetailView
 
 from jobs.models import Job, Cities, JobTypes, Resume
 
+logger = logging.getLogger(__name__)
 
 def joblist(request):
     job_list = Job.objects.order_by('job_type')
@@ -29,7 +31,7 @@ def detail(request, job_id):
     try:
         job = Job.objects.get(pk=job_id)
         job.city_name = Cities[job.job_city][1]
-        print(job.__dict__)
+        logger.info('job info fetched from database jobid:%s' % job_id)
     except Job.DoesNotExist:
         raise Http404('Job does not exist')
 
