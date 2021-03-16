@@ -9,7 +9,7 @@ from django.utils.safestring import mark_safe
 
 from interview.models import Candidate
 from interview import candidate_fieldset as cf
-from interview import dingtalk
+from .tasks import send_dingtalk_message
 
 import logging
 import csv
@@ -28,7 +28,7 @@ def notify_interviewer(modeladmin, request, queryset):
     for obj in queryset:
         candidates = obj.username + ';' + candidates
         interviewers = obj.first_interviewer_user.username + ';' + interviewers
-    dingtalk.send('候选人 %s进入面试环节，亲爱的面试官，请准备好面试： %s' % (candidates, interviewers))
+    send_dingtalk_message.delay('候选人 %s进入面试环节，亲爱的面试官，请准备好面试： %s' % (candidates, interviewers))
     messages.add_message(request, messages.INFO,
                          '已成功通知面试官：%s' % interviewers)
 
