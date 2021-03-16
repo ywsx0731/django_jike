@@ -25,7 +25,7 @@ def debug_task(self):
 from celery.schedules import crontab
 
 # this is important to load the celery tasks
-from recruitment.tasks import add
+# from recruitment.tasks import add
 
 app.conf.beat_schedule = {
     'add-every-10-seconds': {

@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'jobs',
     'interview',
     'rest_framework',
-    'django_celery_beat'
+    'django_celery_beat',
+    'recruitment'
     # 'raven.contrib.django.raven_compat',
 ]
 
