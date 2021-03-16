@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django_python3_ldap',
     'jobs',
     'interview',
-    'rest_framework'
+    'rest_framework',
+    'django_celery_beat'
     # 'raven.contrib.django.raven_compat',
 ]
 

@@ -66,3 +66,4 @@ print(sentry_sdk.init(
 # set DJANGO_SETTINGS_MODULE=settings.local
 # celery -A recruitment worker -l info -P eventlet
 # celery -A recruitment flower
+# celery -A recruitment beat --scheduler django_celery_beat.schedulers:DatabaseScheduler

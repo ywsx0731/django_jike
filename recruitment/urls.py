@@ -67,7 +67,6 @@ urlpatterns = [
 
     path('i18n/', include('django.conf.urls.i18n')),
 
-    path('api-auth/', include('rest_framework.urls'))
 ]
 
 admin.site.site_header = _('匠果科技招聘管理系统')
