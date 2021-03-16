@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'interview',
     'rest_framework',
     'django_celery_beat',
-    'recruitment'
+    'recruitment',
+    'django_oss_storage'
     # 'raven.contrib.django.raven_compat',
 ]
 
@@ -215,7 +216,10 @@ LOGGING = {
     },
 }
 
-### LAAP
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+### LDAP
 
 # The URL of the LDAP server.
 

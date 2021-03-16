@@ -41,6 +41,21 @@ CACHES = {
     }
 }
 
+# 阿里云 CDN 存储静态资源文件 & 阿里云存储上传的图片/文件
+# STATICFILES_STORAGE = 'django_oss_storage.backends.OssStaticStorage'
+
+DEFAULT_FILE_STORAGE = 'django_oss_storage.backends.OssMediaStorage'
+
+# AliCloud access key ID
+OSS_ACCESS_KEY_ID = 'LTAI4G874yQ3ALAUNewqTUi1'
+# AliCloud access key secret
+OSS_ACCESS_KEY_SECRET = 'uUkfs4kll6ckK3541LlAfpGY6u401K'
+# The name of the bucket to store files in
+OSS_BUCKET_NAME = 'django-recruitment-zy'
+
+# The URL of AliCloud OSS endpoint
+# Refer https://www.alibabacloud.com/help/zh/doc-detail/31837.htm for OSS Region & Endpoint
+OSS_ENDPOINT = 'oss-cn-beijing.aliyuncs.com'
 
 ## 钉钉群的 WEB_HOOK， 用于发送钉钉消息
 DINGTALK_WEB_HOOK = "https://oapi.dingtalk.com/robot/send?access_token=dec6c67036c259bea4fe5df5786801811ac7c126a192db95831f902ff4aa9b6c"
