@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_python3_ldap',
     'jobs',
     'interview',
+    'running',
     'rest_framework',
     'django_celery_beat',
     'recruitment',
@@ -107,10 +108,21 @@ WSGI_APPLICATION = 'recruitment.wsgi.application'
 
 DATABASES = {
     'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
+    'running': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'running',
+            'USER': 'root',
+            'PASSWORD': 'recruitment',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+    },
 }
+
+DATABASE_ROUTERS = ['settings.router.DatabaseRouter']
 
 
 # Password validation

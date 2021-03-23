@@ -47,9 +47,9 @@ CACHES = {
 DEFAULT_FILE_STORAGE = 'django_oss_storage.backends.OssMediaStorage'
 
 # AliCloud access key ID
-OSS_ACCESS_KEY_ID = 'LTAI4G874yQ3ALAUNewqTUi1'
+OSS_ACCESS_KEY_ID = ''
 # AliCloud access key secret
-OSS_ACCESS_KEY_SECRET = 'uUkfs4kll6ckK3541LlAfpGY6u401K'
+OSS_ACCESS_KEY_SECRET = ''
 # The name of the bucket to store files in
 OSS_BUCKET_NAME = 'django-recruitment-zy'
 

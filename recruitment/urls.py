@@ -65,6 +65,7 @@ urlpatterns = [
 
     path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
+    url(r'chaining/', include('smart_selects.urls')),
     url('^accounts/', include('registration.backends.simple.urls')),
 
     path('i18n/', include('django.conf.urls.i18n')),
