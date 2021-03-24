@@ -45,11 +45,12 @@ INSTALLED_APPS = [
     'django_python3_ldap',
     'jobs',
     'interview',
-    'running',
     'rest_framework',
     'django_celery_beat',
-    'recruitment',
-    'django_oss_storage'
+    'django_oss_storage',
+    # uncomment the line of "UniversalManagerApp" to automatically register all models
+    # 'recruitment.apps.UniversalManagerApp',
+    'running',
     # 'raven.contrib.django.raven_compat',
 ]
 

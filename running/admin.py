@@ -21,20 +21,3 @@ class ReadOnlyAdmin(admin.ModelAdmin):
 
     def has_change_permission(self, request, obj=None):
         return False
-
-
-@admin.register(Country)
-class CountryAdmin(ReadOnlyAdmin):
-    search_fields = ('chn_name', 'eng_name',)
-
-
-@admin.register(Province)
-class ProvinceAdmin(ReadOnlyAdmin):
-    search_fields = ('chn_name', 'eng_name',)
-
-
-@admin.register(City)
-class CityAdmin(ReadOnlyAdmin):
-    autocomplete_fields = ['provinceid', 'countryid', ]
-
-    list_display = ('cityid', 'countryid', 'areaid', 'provinceid', 'chn_name', 'eng_name')
