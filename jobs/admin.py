@@ -30,6 +30,7 @@ def enter_interview_process(modeladmin, request, queryset):
         candidate.save()
     messages.add_message(request, messages.INFO, '候选人：%s 已成功进入面试流程' % candidate_names)
 
+
 enter_interview_process.short_description = u'进入面试流程'
 
 
@@ -53,12 +54,13 @@ class ResumeAdmin(admin.ModelAdmin):
             "applicant", ("username", "city", "phone"),
             ("email", "apply_position", "born_address", "gender", ), ("picture", "attachment",),
             ("bachelor_school", "master_school"), ("major", "degree"), ('created_date', 'modified_date'),
-            "candidate_introduction", "work_experience","project_experience",)}),
+            "candidate_introduction", "work_experience", "project_experience",)}),
     )
 
     def save_model(self, request, obj, form, change):
         obj.applicant = request.user
         super().save_model(request, obj, form, change)
+
 
 admin.site.register(Job, JobAdmin)
 admin.site.register(Resume, ResumeAdmin)

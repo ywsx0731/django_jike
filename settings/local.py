@@ -44,18 +44,18 @@ CACHES = {
 # 阿里云 CDN 存储静态资源文件 & 阿里云存储上传的图片/文件
 # STATICFILES_STORAGE = 'django_oss_storage.backends.OssStaticStorage'
 
-DEFAULT_FILE_STORAGE = 'django_oss_storage.backends.OssMediaStorage'
+# DEFAULT_FILE_STORAGE = 'django_oss_storage.backends.OssMediaStorage'
 
 # AliCloud access key ID
-OSS_ACCESS_KEY_ID = ''
-# AliCloud access key secret
-OSS_ACCESS_KEY_SECRET = ''
-# The name of the bucket to store files in
-OSS_BUCKET_NAME = 'django-recruitment-zy'
-
-# The URL of AliCloud OSS endpoint
-# Refer https://www.alibabacloud.com/help/zh/doc-detail/31837.htm for OSS Region & Endpoint
-OSS_ENDPOINT = 'oss-cn-beijing.aliyuncs.com'
+# OSS_ACCESS_KEY_ID = ''
+# # AliCloud access key secret
+# OSS_ACCESS_KEY_SECRET = ''
+# # The name of the bucket to store files in
+# OSS_BUCKET_NAME = 'django-recruitment-zy'
+#
+# # The URL of AliCloud OSS endpoint
+# # Refer https://www.alibabacloud.com/help/zh/doc-detail/31837.htm for OSS Region & Endpoint
+# OSS_ENDPOINT = 'oss-cn-beijing.aliyuncs.com'
 
 ## 钉钉群的 WEB_HOOK， 用于发送钉钉消息
 DINGTALK_WEB_HOOK = "https://oapi.dingtalk.com/robot/send?access_token=dec6c67036c259bea4fe5df5786801811ac7c126a192db95831f902ff4aa9b6c"
@@ -64,7 +64,7 @@ import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 
-print(sentry_sdk.init(
+sentry_sdk.init(
     # dsn='http://ef1e23388d2d4c0380de950c5d952748@100.95.173.161:9000/2',
     dsn='https://dd6a4752ee724b74b4ea56e7bcea2170@o547160.ingest.sentry.io/5669768',
     integrations=[DjangoIntegration()],
@@ -74,7 +74,7 @@ print(sentry_sdk.init(
     # If you wish to associate users to errors (assuming you are using
     # django.contrib.auth) you may enable sending PII data.
     send_default_pii=True
-).__dict__['_client'].__dict__)
+)
 
 
 
@@ -82,3 +82,5 @@ print(sentry_sdk.init(
 # celery -A recruitment worker -l info -P eventlet
 # celery -A recruitment flower
 # celery -A recruitment beat --scheduler django_celery_beat.schedulers:DatabaseScheduler
+
+# python manage.py runserver 0.0.0.0:8000 --settings=settings.local
