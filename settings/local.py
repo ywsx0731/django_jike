@@ -2,6 +2,8 @@ from .base import *
 
 DEBUG = True
 
+STATIC_URL = '/static/'
+
 ALLOWED_HOSTS = ["recruit.ihopeit.com", "127.0.0.1"]
 
 ## 务必修改以下值，确保运行时系统安全:
