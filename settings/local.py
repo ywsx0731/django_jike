@@ -14,7 +14,7 @@ LDAP_AUTH_CONNECTION_USERNAME = "admin"
 LDAP_AUTH_CONNECTION_PASSWORD = "admin_passwd_4_ldap"
 
 INSTALLED_APPS += (
-    # other apps for production site
+    'debug_toolbar',    # other apps for production site
 )
 
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'

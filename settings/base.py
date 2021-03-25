@@ -33,6 +33,7 @@ SIMPLE_BACKEND_REDIRECT_URL = '/accounts/login/'
 # Application definition
 
 INSTALLED_APPS = [
+    'simpleui',
     'grappelli',
     'bootstrap4',
     'registration',
@@ -68,8 +69,12 @@ REST_FRAMEWORK = {
 #     # 'dsn': 'http://ef1e23388d2d4c0380de950c5d952748@100.95.173.161:9000/2',
 # }
 
+INTERNAL_IPS = ['127.0.0.1']
+
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'interview.performance.PerformanceAndExceptionLoggerMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -83,6 +88,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+DEBUG_TOOLBAR_CONFIG = {
+    'JQUERY_URL': 'https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js',
+}
 
 ROOT_URLCONF = 'recruitment.urls'
 
