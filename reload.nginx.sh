@@ -1,0 +1,1 @@
+/data/tengine/sbin/nginx -s reload -c /data/tengine/conf/nginx.conf

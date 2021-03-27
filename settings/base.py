@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'registration',
     'django.contrib.admin',
     'django.contrib.auth',
+    'corsheaders',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -72,6 +73,7 @@ REST_FRAMEWORK = {
 INTERNAL_IPS = ['127.0.0.1']
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'interview.performance.PerformanceAndExceptionLoggerMiddleware',
 
@@ -88,6 +90,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# CORS
+CORS_ORIGIN_WHITELIST = (
+    '127.0.0.1:8001',
+    'localhost:8001',
+    '127.0.0.1:8002',
+    'localhost:8002',
+)
+CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
 
 DEBUG_TOOLBAR_CONFIG = {
     'JQUERY_URL': 'https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js',

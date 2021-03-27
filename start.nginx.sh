@@ -1,0 +1,1 @@
+/data/tengine/sbin/nginx -c /data/tengine/conf/nginx.conf

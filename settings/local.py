@@ -4,7 +4,7 @@ DEBUG = True
 
 STATIC_URL = '/static/'
 
-ALLOWED_HOSTS = ["recruit.ihopeit.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["recruit.ihopeit.com", "127.0.0.1", '*']
 
 ## 务必修改以下值，确保运行时系统安全:
 SECRET_KEY = "w$46bks+b3-7f(13#i%v@jwejrnxc$^^#@#@^t@fofizy1^mo9r8(-939243423300"
@@ -86,3 +86,10 @@ sentry_sdk.init(
 # celery -A recruitment beat --scheduler django_celery_beat.schedulers:DatabaseScheduler
 
 # python manage.py runserver 0.0.0.0:8000 --settings=settings.local
+# gunicorn -w 3 -b 127.0.0.1:8000 recruitment.wsgi:application
+# export DJANGO_SETTINGS_MODULE=settings.local;/antenv/bin/gunicorn -w 3 -b 0.0.0.0:3000 recruitment.wsgi:application
+# gunicorn -w 3 -b 10.0.1.4:8000 recruitment.wsgi:application
+# gunicorn -w 3 -b 137.117.67.120:8000 recruitment.wsgi:application
+# uvicorn recruitment.asgi:application --workers 3
+# python manage.py check --deploy   部署前的安全检查
+# curl 127.0.0.1:3000/admin
