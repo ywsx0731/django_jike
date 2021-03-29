@@ -6,7 +6,7 @@ ALLOWED_HOSTS = ['137.117.67.120', "recruit.ihopeit.com", "127.0.0.1", 'zhaoping
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'w$46iie+a8-7f(13#i%v@pa@+fbm^t@fofizy1^m69r8(-h16o3s882')
 
-DEBUG = False
+DEBUG = True
 INSTALLED_APPS += (
     'debug_toolbar', # and other apps for local development
 )
@@ -30,18 +30,17 @@ CELERYBEAT_LOG_FILE = os.path.join(BASE_DIR, "logs", "celery_beat.log")
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
-'''
 sentry_sdk.init(
-    dsn="http://xxx@recruit.ihopeit.com:9000/2",
+    dsn="https://dd6a4752ee724b74b4ea56e7bcea2170@o547160.ingest.sentry.io/5669768",
     integrations=[DjangoIntegration()],
     # performance tracing sample rate, 采样率, 生产环境访问量过大时，建议调小（不用每一个URL请求都记录性能）
-    traces_sample_rate=1.0, # 
+    traces_sample_rate=1.0,
 
     # If you wish to associate users to errors (assuming you are using
     # django.contrib.auth) you may enable sending PII data.
     send_default_pii=True
 )
-'''
+
 
 ## 如果仅使用数据库中的账号，以下 LDAP 配置可忽略
 ## 替换这里的配置为正确的域服务器配置，同时可能需要修改 base.py 中的 LDAP 服务器相关配置:
@@ -49,8 +48,8 @@ LDAP_AUTH_URL = os.environ.get('LDAP_AUTH_URL', 'ldap://localhost:389')
 LDAP_AUTH_CONNECTION_USERNAME = os.environ.get('LDAP_AUTH_CONNECTION_USERNAME')
 LDAP_AUTH_CONNECTION_PASSWORD = os.environ.get('LDAP_AUTH_CONNECTION_PASSWORD')
 
-# STATIC_URL = 'http://icdn.ihopeit.com/static/'
-STATIC_URL = '/static/'
+STATIC_URL = 'http://qing0628.top/static/'
+# STATIC_URL = '/static/'
 
 # 阿里云 CDN 存储静态资源文件 & 阿里云存储上传的图片/文件
 # STATICFILES_STORAGE = 'django_oss_storage.backends.OssStaticStorage'
@@ -85,3 +84,7 @@ DINGTALK_WEB_HOOK = "https://oapi.dingtalk.com/robot/send?access_token=%s" % DIN
 # uvicorn recruitment.asgi:application --workers 3
 # python manage.py check --deploy   部署前的安全检查
 # curl 127.0.0.1:3000/admin
+
+# export OSS_ACCESS_KEY_ID='LTAI4G874yQ3ALAUNewqTUi1'
+# export OSS_ACCESS_KEY_SECRET='uUkfs4kll6ckK3541LlAfpGY6u401K'
+# export DINGTALK_WEB_HOOK_TOKEN='dec6c67036c259bea4fe5df5786801811ac7c126a192db95831f902ff4aa9b6c'
