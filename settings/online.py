@@ -31,7 +31,7 @@ import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 sentry_sdk.init(
-    dsn="https://dd6a4752ee724b74b4ea56e7bcea2170@o547160.ingest.sentry.io/5669768",
+    dsn="http://770841eb585f4c01a28c8c2eec48ed39@qing.eastus.cloudapp.azure.com:9000/2",
     integrations=[DjangoIntegration()],
     # performance tracing sample rate, 采样率, 生产环境访问量过大时，建议调小（不用每一个URL请求都记录性能）
     traces_sample_rate=1.0,
@@ -88,3 +88,15 @@ DINGTALK_WEB_HOOK = "https://oapi.dingtalk.com/robot/send?access_token=%s" % DIN
 # export OSS_ACCESS_KEY_ID='LTAI4G874yQ3ALAUNewqTUi1'
 # export OSS_ACCESS_KEY_SECRET='uUkfs4kll6ckK3541LlAfpGY6u401K'
 # export DINGTALK_WEB_HOOK_TOKEN='dec6c67036c259bea4fe5df5786801811ac7c126a192db95831f902ff4aa9b6c'
+
+# 新浪邮箱授权码 0262c0677fb1a05b
+
+# SENTRY_EMAIL_HOST: 'smtp.sina.cn'
+# SENTRY_EMAIL_USER: '17388951098@sina.cn'
+# SENTRY_EMAIL_PASSWORD: '0262c0677fb1a05b'   # 填写自己的密码
+# SENTRY_SERVER_EMAIL: '17388951098@sina.cn'
+# SENTRY_EMAIL_PORT: 587       # 阿里云必须写这一项
+# SENTRY_EMAIL_USE_TLS: 'false'   # 阿里云必须写这一项
+
+# prometheus --web.listen-address 127.0.0.1:9090 --config.file=prometheus.yml
+# /home/azureuser# /data/server/grafana-7.3.0/bin/grafana-server --homepath=/data/server/grafana-7.3.0/ --config=/data/server/grafana-7.3.0/conf/defaults.ini

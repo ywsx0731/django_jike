@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'grappelli',
     'bootstrap4',
     'registration',
+    'django_prometheus',
     'django.contrib.admin',
     'django.contrib.auth',
     'corsheaders',
@@ -73,6 +74,7 @@ REST_FRAMEWORK = {
 INTERNAL_IPS = ['127.0.0.1']
 
 MIDDLEWARE = [
+    'django_prometheus.middleware.PrometheusBeforeMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'interview.performance.PerformanceAndExceptionLoggerMiddleware',
@@ -89,6 +91,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_prometheus.middleware.PrometheusAfterMiddleware',
 ]
 
 # CORS
@@ -131,7 +134,7 @@ WSGI_APPLICATION = 'recruitment.wsgi.application'
 DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django_prometheus.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
     'running': {
@@ -287,3 +290,5 @@ LDAP_AUTH_CONNECTION_PASSWORD = None
 AUTHENTICATION_BACKENDS = {"django_python3_ldap.auth.LDAPBackend", "django.contrib.auth.backends.ModelBackend"}
 
 DINGTALK_WEB_HOOK = "https://oapi.dingtalk.com/robot/send?access_token=dec6c67036c259bea4fe5df5786801811ac7c126a192db95831f902ff4aa9b6c"
+
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"

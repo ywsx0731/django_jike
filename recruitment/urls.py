@@ -69,6 +69,7 @@ urlpatterns = [
     url('^accounts/', include('registration.backends.simple.urls')),
 
     path('i18n/', include('django.conf.urls.i18n')),
+    url('', include('django_prometheus.urls'))
 
 ]
 
